@@ -42,7 +42,7 @@ function SkillCard({ icon, title, skills }) {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       {/* Header/Navigation */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-slate-200">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -260,7 +260,7 @@ export default function Home() {
                 <SkillCard
                   icon={<Cloud className="h-6 w-6 text-purple-500" />}
                   title="Networks"
-                  skills={["VPC", "PrivateLink", "VPN" "Route 53", "Direct Connect"]}
+                  skills={["VPC", "PrivateLink", "VPN", "Route 53", "Direct Connect"]}
                 />
                 <SkillCard
                   icon={<Shield className="h-6 w-6 text-red-500" />}
@@ -568,7 +568,7 @@ export default function Home() {
           <p>© {new Date().getFullYear()} Augusto de Oliveira Perin. All rights reserved.</p>
         </div>
       </footer>
-    </div>
+    </main>
   )
 }
 
