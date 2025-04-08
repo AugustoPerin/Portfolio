@@ -4,9 +4,11 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { X, Menu } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false)
+  const { t } = useLanguage()
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
@@ -67,7 +69,7 @@ export function MobileMenu() {
                   variants={linkVariants}
                   onClick={toggleMenu}
                 >
-                  About
+                  {t("nav.about")}
                 </motion.a>
                 <motion.a
                   href="#experience"
@@ -75,7 +77,7 @@ export function MobileMenu() {
                   variants={linkVariants}
                   onClick={toggleMenu}
                 >
-                  Experience
+                  {t("nav.experience")}
                 </motion.a>
                 <motion.a
                   href="#skills"
@@ -83,7 +85,7 @@ export function MobileMenu() {
                   variants={linkVariants}
                   onClick={toggleMenu}
                 >
-                  Skills
+                  {t("nav.skills")}
                 </motion.a>
                 <motion.a
                   href="#certifications"
@@ -91,7 +93,7 @@ export function MobileMenu() {
                   variants={linkVariants}
                   onClick={toggleMenu}
                 >
-                  Certifications
+                  {t("nav.certifications")}
                 </motion.a>
                 <motion.a
                   href="#education"
@@ -99,7 +101,7 @@ export function MobileMenu() {
                   variants={linkVariants}
                   onClick={toggleMenu}
                 >
-                  Education
+                  {t("nav.education")}
                 </motion.a>
                 <motion.a
                   href="#contact"
@@ -107,7 +109,7 @@ export function MobileMenu() {
                   variants={linkVariants}
                   onClick={toggleMenu}
                 >
-                  Contact
+                  {t("nav.contact")}
                 </motion.a>
               </nav>
             </div>

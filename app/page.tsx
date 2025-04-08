@@ -30,6 +30,9 @@ import { TechGrid } from "@/components/ui/tech-grid"
 import { ParticleBackground } from "@/components/ui/particle-background"
 import { MobileMenu } from "@/components/ui/mobile-menu"
 import { ScrollIndicator } from "@/components/ui/scroll-indicator"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
+import { LanguageSelector } from "@/components/ui/language-selector"
+import { useLanguage } from "@/contexts/language-context"
 
 // Skill Card Component
 function SkillCard({ icon, title, skills, delay = 0 }) {
@@ -85,6 +88,7 @@ function SkillCard({ icon, title, skills, delay = 0 }) {
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     setMounted(true)
@@ -116,21 +120,32 @@ export default function Home() {
             Augusto Perin
           </motion.div>
           <nav className="hidden md:flex space-x-6">
-            {["about", "experience", "skills", "certifications", "education", "contact"].map((item, i) => (
+            {[
+              { key: "about", label: t("nav.about") },
+              { key: "experience", label: t("nav.experience") },
+              { key: "skills", label: t("nav.skills") },
+              { key: "certifications", label: t("nav.certifications") },
+              { key: "education", label: t("nav.education") },
+              { key: "contact", label: t("nav.contact") }
+            ].map((item, i) => (
               <motion.a
-                key={item}
-                href={`#${item}`}
+                key={item.key}
+                href={`#${item.key}`}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * i, duration: 0.5 }}
                 className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative group"
               >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
           </nav>
-          <MobileMenu />
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <LanguageSelector />
+            <MobileMenu />
+          </div>
         </div>
       </motion.header>
 
@@ -146,9 +161,9 @@ export default function Home() {
                 AWS Certified Solutions Architect Professional
               </Badge>
             </motion.div>
-            <AnimatedText text="Augusto de Oliveira Perin" className="text-4xl md:text-5xl font-bold mb-4" />
+            <AnimatedText text={t("hero.title")} className="text-4xl md:text-5xl font-bold mb-4" />
             <AnimatedText
-              text="AWS Cloud Engineer, Data Specialist, Solutions Architect"
+              text={t("hero.subtitle")}
               className="text-xl md:text-2xl text-slate-300 mb-6"
               once
             />
@@ -158,22 +173,22 @@ export default function Home() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="text-slate-300 mb-8"
             >
-              4+ years of experience in AWS and data-driven solutions.
+              {t("hero.experience")}
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className="flex flex-wrap gap-3"
+              className="className=\"flex flex-wrap gap-3\""
             >
               <Button asChild className="bg-blue-600 hover:bg-blue-700 group relative overflow-hidden">
                 <a href="#contact">
-                  <span className="relative z-10">Get in Touch</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="relative z-10">{t("hero.cta.contact")}</span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 </a>
               </Button>
               <Button variant="outline" className="border-white text-black hover:bg-white/10" asChild>
-                <a href="#experience">View Experience</a>
+                <a href="#experience">{t("hero.cta.experience")}</a>
               </Button>
             </motion.div>
           </div>
@@ -190,7 +205,7 @@ export default function Home() {
                 animate={{ opacity: [0, 0.5, 0] }}
                 transition={{ delay: 1, duration: 2, repeat: Number.POSITIVE_INFINITY, repeatDelay: 3 }}
                 className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-indigo-500/30"
-              />
+              ></motion.div>
             </div>
           </motion.div>
         </div>
@@ -207,15 +222,15 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-20 bg-white dark:bg-slate-900">
         <div className="container mx-auto px-4">
-          <SectionHeading>About Me</SectionHeading>
+          <SectionHeading>{t("about.title")}</SectionHeading>
           <div className="max-w-3xl mx-auto">
             <AnimatedText
-              text="I'm an AWS Cloud Engineer and Solutions Architect with over 4 years of experience designing and implementing scalable, secure, and cost-effective cloud solutions. I specialize in AWS architecture, DevOps practices, and data-driven solutions."
+              text={t("about.p1")}
               className="text-lg text-slate-700 dark:text-slate-300 mb-6"
               once
             />
             <AnimatedText
-              text="My expertise includes infrastructure automation, containerization with Kubernetes, and implementing data processing pipelines using AWS services like Glue, Athena, and S3."
+              text={t("about.p2")}
               className="text-lg text-slate-700 dark:text-slate-300 mb-6"
               once
             />
@@ -266,7 +281,7 @@ export default function Home() {
       {/* Experience Section */}
       <section id="experience" className="py-20 bg-slate-50 dark:bg-slate-800/50">
         <div className="container mx-auto px-4">
-          <SectionHeading>Professional Experience</SectionHeading>
+          <SectionHeading>{t("experience.title")}</SectionHeading>
 
           <div className="max-w-4xl mx-auto">
             {/* VX Case */}
@@ -293,7 +308,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="text-2xl font-bold text-slate-800 dark:text-slate-100"
                 >
-                  AWS Cloud and DevOps Engineer
+                  {t("experience.vxcase.title")}
                 </motion.h3>
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
@@ -302,7 +317,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="text-lg text-blue-600 dark:text-blue-400"
                 >
-                  VX Case
+                  {t("experience.vxcase.company")}
                 </motion.p>
               </div>
               <motion.ul
@@ -313,10 +328,10 @@ export default function Home() {
                 className="mt-4 space-y-3"
               >
                 {[
-                  "Led the migration of company infrastructure to AWS EKS (Elastic Kubernetes Service).",
-                  "Achieved 91% reduction in data storage costs through implementation of AWS S3 and Athena.",
-                  "Led migration of 1 TB daily data using AWS Glue with Spark backend for automated data processing pipelines.",
-                  "Communicated complex technical concepts to non-technical stakeholders, ensuring alignment of cloud initiatives.",
+                  t("experience.vxcase.p1"),
+                  t("experience.vxcase.p2"),
+                  t("experience.vxcase.p3"),
+                  t("experience.vxcase.p4"),
                 ].map((item, index) => (
                   <motion.li
                     key={index}
@@ -357,7 +372,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="text-2xl font-bold text-slate-800 dark:text-slate-100"
                 >
-                  Junior Solutions Architect
+                  {t("experience.ru.title")}
                 </motion.h3>
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
@@ -366,7 +381,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="text-lg text-blue-600 dark:text-blue-400"
                 >
-                  RU Contabilidade
+                  {t("experience.ru.company")}
                 </motion.p>
               </div>
               <motion.ul
@@ -377,9 +392,9 @@ export default function Home() {
                 className="mt-4 space-y-3"
               >
                 {[
-                  "Implemented Python scripts to automate repetitive tasks, increasing operational efficiency.",
-                  "Achieved 94% reduction in processing time by automating Excel spreadsheet tasks (from 3 hours to 10 minutes daily).",
-                  "Managed SQL queries to extract and manipulate data from MySQL database, ensuring data integrity.",
+                  t("experience.ru.p1"),
+                  t("experience.ru.p2"),
+                  t("experience.ru.p3"),
                 ].map((item, index) => (
                   <motion.li
                     key={index}
@@ -402,21 +417,21 @@ export default function Home() {
       {/* Skills Section */}
       <section id="skills" className="py-20 bg-white dark:bg-slate-900">
         <div className="container mx-auto px-4">
-          <SectionHeading>Technical Skills</SectionHeading>
+          <SectionHeading>{t("skills.title")}</SectionHeading>
 
           <Tabs defaultValue="aws" className="max-w-4xl mx-auto">
             <TabsList className="grid grid-cols-4 mb-8 bg-slate-100 dark:bg-slate-800">
               <TabsTrigger value="aws" className="data-[state=active]:bg-blue-500 data-[state=active]:text-white">
-                AWS Services
+                {t("skills.aws")}
               </TabsTrigger>
               <TabsTrigger value="cloud" className="data-[state=active]:bg-blue-500 data-[state=active]:text-white">
-                Cloud & DevOps
+                {t("skills.cloud")}
               </TabsTrigger>
               <TabsTrigger value="data" className="data-[state=active]:bg-blue-500 data-[state=active]:text-white">
-                Data Science
+                {t("skills.data")}
               </TabsTrigger>
               <TabsTrigger value="other" className="data-[state=active]:bg-blue-500 data-[state=active]:text-white">
-                Other Skills
+                {t("skills.other")}
               </TabsTrigger>
             </TabsList>
 
@@ -547,7 +562,7 @@ export default function Home() {
       {/* Certifications Section */}
       <section id="certifications" className="py-20 bg-slate-50 dark:bg-slate-800/50">
         <div className="container mx-auto px-4">
-          <SectionHeading>Certifications</SectionHeading>
+          <SectionHeading>{t("certifications.title")}</SectionHeading>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
@@ -619,7 +634,7 @@ export default function Home() {
             className="mt-12 max-w-4xl mx-auto"
           >
             <h3 className="text-xl font-bold mb-6 text-slate-800 dark:text-slate-100">
-              Additional Courses & Certificates
+              {t("certifications.additional")}
             </h3>
             <ul className="space-y-3">
               {[
@@ -647,7 +662,7 @@ export default function Home() {
       {/* Education Section */}
       <section id="education" className="py-20 bg-white dark:bg-slate-900">
         <div className="container mx-auto px-4">
-          <SectionHeading>Education</SectionHeading>
+          <SectionHeading>{t("education.title")}</SectionHeading>
 
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
@@ -708,13 +723,13 @@ export default function Home() {
       {/* Languages Section */}
       <section className="py-12 bg-slate-50 dark:bg-slate-800/50">
         <div className="container mx-auto px-4">
-          <SectionHeading>Languages</SectionHeading>
+          <SectionHeading>{t("languages.title")}</SectionHeading>
 
           <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { language: "Portuguese", level: "Native" },
-              { language: "English", level: "Advanced" },
-              { language: "Spanish", level: "Basic" },
+              { language: t("languages.portuguese"), level: t("languages.native") },
+              { language: t("languages.english"), level: t("languages.advanced") },
+              { language: t("languages.spanish"), level: t("languages.basic") },
             ].map((lang, index) => (
               <AnimatedCard key={index} delay={0.1 * index}>
                 <Card className="border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
@@ -754,26 +769,26 @@ export default function Home() {
           <div className="absolute inset-0 bg-[url('/images/circuit-pattern.svg')] opacity-10" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <SectionHeading className="text-white">Get In Touch</SectionHeading>
+          <SectionHeading className="text-white">{t("contact.title")}</SectionHeading>
 
           <div className="max-w-2xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 {
                   icon: <Phone className="h-6 w-6 text-white" />,
-                  title: "Phone",
+                  title: t("contact.phone"),
                   content: "+55 71 98155-7226",
                   isLink: false,
                 },
                 {
                   icon: <Mail className="h-6 w-6 text-white" />,
-                  title: "Email",
+                  title: t("contact.email"),
                   content: "augustooperin@gmail.com",
                   isLink: false,
                 },
                 {
                   icon: <MapPin className="h-6 w-6 text-white" />,
-                  title: "Location",
+                  title: t("contact.location"),
                   content: "Salvador, Bahia, Brazil",
                   isLink: false,
                 },
@@ -826,7 +841,7 @@ export default function Home() {
               className="mt-12 text-center"
             >
               <p className="text-lg text-blue-200">
-                I'm always open to discussing new projects, opportunities, or partnerships.
+                {t("contact.message")}
               </p>
             </motion.div>
           </div>
@@ -842,7 +857,7 @@ export default function Home() {
         className="py-8 bg-slate-900 text-slate-400 text-center"
       >
         <div className="container mx-auto px-4">
-          <p>© {new Date().getFullYear()} Augusto de Oliveira Perin. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Augusto de Oliveira Perin. {t("footer.rights")}</p>
         </div>
       </motion.footer>
     </main>
