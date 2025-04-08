@@ -172,7 +172,7 @@ export default function Home() {
                   <span className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </a>
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+              <Button variant="outline" className="border-white text-black hover:bg-white/10" asChild>
                 <a href="#experience">View Experience</a>
               </Button>
             </motion.div>
