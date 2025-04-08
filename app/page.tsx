@@ -94,7 +94,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/20">
-            <Image src="/images/profile.png" alt="Augusto Perin" fill className="object-cover" />
+            <Image src="/images/profile.jpg" alt="Augusto Perin" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -355,8 +355,8 @@ export default function Home() {
                 <Image
                     src="/images/aws-solutions-architect.png"
                     alt="AWS Certified Solutions Architect Professional"
-                    width={128}
-                    height={128}
+                    width={100}
+                    height={100}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-center mb-2">AWS Certified Solutions Architect Professional</h3>
@@ -370,8 +370,8 @@ export default function Home() {
                   <Image
                     src="/images/aws-cloud-practitioner.png"
                     alt="AWS Certified Cloud Practitioner"
-                    width={128}
-                    height={128}
+                    width={100}
+                    height={100}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-center mb-2">AWS Certified Cloud Practitioner</h3>
@@ -385,8 +385,8 @@ export default function Home() {
                   <Image
                     src="/images/tensorflow-developer.png"
                     alt="TensorFlow Developer Certificate"
-                    width={128}
-                    height={128}
+                    width={100}
+                    height={100}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-center mb-2">TensorFlow Developer Certificate</h3>

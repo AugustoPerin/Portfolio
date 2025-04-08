@@ -9,7 +9,11 @@ export const metadata = {
   title: "Augusto Perin | AWS Cloud Engineer & Solutions Architect",
   description:
     "Portfolio of Augusto de Oliveira Perin, AWS Certified Solutions Architect Professional with expertise in cloud engineering and data solutions.",
-    generator: 'v0.dev'
+    generator: 'v0.dev',
+    icons: {
+      icon: '/favicon.png',
+    },
+  
 }
 
 export default function RootLayout({
