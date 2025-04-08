@@ -19,6 +19,27 @@ import {
   ChevronRight,
 } from "lucide-react"
 
+// Skill Card Component
+function SkillCard({ icon, title, skills }) {
+  return (
+    <Card className="h-full">
+      <CardContent className="p-6">
+        <div className="flex items-center gap-3 mb-4">
+          {icon}
+          <h3 className="font-bold text-lg">{title}</h3>
+        </div>
+        <ul className="space-y-2">
+          {skills.map((skill, index) => (
+            <li key={index} className="text-slate-700">
+              {skill}
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
+  )
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
@@ -551,23 +572,4 @@ export default function Home() {
   )
 }
 
-// Skill Card Component
-function SkillCard({ icon, title, skills }) {
-  return (
-    <Card className="h-full">
-      <CardContent className="p-6">
-        <div className="flex items-center gap-3 mb-4">
-          {icon}
-          <h3 className="font-bold text-lg">{title}</h3>
-        </div>
-        <ul className="space-y-2">
-          {skills.map((skill, index) => (
-            <li key={index} className="text-slate-700">
-              {skill}
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-    </Card>
-  )
-}
+
