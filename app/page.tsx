@@ -5,7 +5,22 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Github, Linkedin, Mail, Phone, MapPin, Cloud, Database, Server, Shield, Code, BarChart, Brain, ChevronRight, ArrowDown } from 'lucide-react'
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  Cloud,
+  Database,
+  Server,
+  Shield,
+  Code,
+  BarChart,
+  Brain,
+  ChevronRight,
+  ArrowDown,
+} from "lucide-react"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { AnimatedText } from "@/components/ui/animated-text"
@@ -111,7 +126,7 @@ export default function Home() {
               { key: "skills", label: t("nav.skills") },
               { key: "certifications", label: t("nav.certifications") },
               { key: "education", label: t("nav.education") },
-              { key: "contact", label: t("nav.contact") }
+              { key: "contact", label: t("nav.contact") },
             ].map((item, i) => (
               <motion.a
                 key={item.key}
@@ -147,11 +162,7 @@ export default function Home() {
               </Badge>
             </motion.div>
             <AnimatedText text={t("hero.title")} className="text-4xl md:text-5xl font-bold mb-4" />
-            <AnimatedText
-              text={t("hero.subtitle")}
-              className="text-xl md:text-2xl text-slate-300 mb-6"
-              once
-            />
+            <AnimatedText text={t("hero.subtitle")} className="text-xl md:text-2xl text-slate-300 mb-6" once />
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -172,7 +183,11 @@ export default function Home() {
                   <span className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 </a>
               </Button>
-              <Button variant="outline" className="border-white text-white dark:text-white hover:bg-white/10" asChild>
+              <Button
+                variant="outline"
+                className="border-slate-700 text-slate-800 hover:bg-slate-100 dark:border-white dark:text-white dark:hover:bg-white/10 transition-colors"
+                asChild
+              >
                 <a href="#experience">{t("hero.cta.experience")}</a>
               </Button>
             </motion.div>
@@ -209,16 +224,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <SectionHeading>{t("about.title")}</SectionHeading>
           <div className="max-w-3xl mx-auto">
-            <AnimatedText
-              text={t("about.p1")}
-              className="text-lg text-slate-700 dark:text-slate-300 mb-6"
-              once
-            />
-            <AnimatedText
-              text={t("about.p2")}
-              className="text-lg text-slate-700 dark:text-slate-300 mb-6"
-              once
-            />
+            <AnimatedText text={t("about.p1")} className="text-lg text-slate-700 dark:text-slate-300 mb-6" once />
+            <AnimatedText text={t("about.p2")} className="text-lg text-slate-700 dark:text-slate-300 mb-6" once />
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -376,11 +383,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="mt-4 space-y-3"
               >
-                {[
-                  t("experience.ru.p1"),
-                  t("experience.ru.p2"),
-                  t("experience.ru.p3"),
-                ].map((item, index) => (
+                {[t("experience.ru.p1"), t("experience.ru.p2"), t("experience.ru.p3")].map((item, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -825,9 +828,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="mt-12 text-center"
             >
-              <p className="text-lg text-blue-200">
-                {t("contact.message")}
-              </p>
+              <p className="text-lg text-blue-200">{t("contact.message")}</p>
             </motion.div>
           </div>
         </div>
@@ -842,7 +843,9 @@ export default function Home() {
         className="py-8 bg-slate-900 text-slate-400 text-center"
       >
         <div className="container mx-auto px-4">
-          <p>© {new Date().getFullYear()} Augusto de Oliveira Perin. {t("footer.rights")}</p>
+          <p>
+            © {new Date().getFullYear()} Augusto de Oliveira Perin. {t("footer.rights")}
+          </p>
         </div>
       </motion.footer>
     </main>
