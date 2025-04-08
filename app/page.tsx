@@ -222,7 +222,7 @@ export default function Home() {
                 <SkillCard
                   icon={<Database className="h-6 w-6 text-blue-500" />}
                   title="Storage"
-                  skills={["S3", "EBS", "Glacier", "SQS", "SNS"]}
+                  skills={["S3", "EBS", "EFS", "FSx", "Glacier"]}
                 />
                 <SkillCard
                   icon={<Database className="h-6 w-6 text-green-500" />}
@@ -239,7 +239,7 @@ export default function Home() {
                 <SkillCard
                   icon={<Cloud className="h-6 w-6 text-purple-500" />}
                   title="Networks"
-                  skills={["VPC", "Route 53", "Direct Connect"]}
+                  skills={["VPC", "PrivateLink", "VPN" "Route 53", "Direct Connect"]}
                 />
                 <SkillCard
                   icon={<Shield className="h-6 w-6 text-red-500" />}
@@ -249,7 +249,7 @@ export default function Home() {
                 <SkillCard
                   icon={<BarChart className="h-6 w-6 text-indigo-500" />}
                   title="Data Analysis"
-                  skills={["Glue", "Athena", "Redshift", "EMR", "Kinesis"]}
+                  skills={["Glue", "Athena", "Redshift", "EMR"]}
                 />
               </div>
             </TabsContent>
@@ -269,7 +269,7 @@ export default function Home() {
                 <SkillCard
                   icon={<Server className="h-6 w-6 text-purple-500" />}
                   title="Containers & Orchestration"
-                  skills={["Kubernetes", "EKS", "Docker"]}
+                  skills={["Kubernetes", "EKS", "Docker", "Step Functions"]}
                 />
                 <SkillCard
                   icon={<Code className="h-6 w-6 text-orange-500" />}
@@ -334,8 +334,8 @@ export default function Home() {
                 <Image
                     src="/images/aws-solutions-architect.png"
                     alt="AWS Certified Solutions Architect Professional"
-                    width={64}
-                    height={64}
+                    width={128}
+                    height={128}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-center mb-2">AWS Certified Solutions Architect Professional</h3>
@@ -349,8 +349,8 @@ export default function Home() {
                   <Image
                     src="/images/aws-cloud-practitioner.png"
                     alt="AWS Certified Cloud Practitioner"
-                    width={64}
-                    height={64}
+                    width={128}
+                    height={128}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-center mb-2">AWS Certified Cloud Practitioner</h3>
@@ -364,8 +364,8 @@ export default function Home() {
                   <Image
                     src="/images/tensorflow-developer.png"
                     alt="TensorFlow Developer Certificate"
-                    width={64}
-                    height={64}
+                    width={128}
+                    height={128}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-center mb-2">TensorFlow Developer Certificate</h3>
