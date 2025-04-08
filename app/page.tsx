@@ -5,22 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Phone,
-  MapPin,
-  Cloud,
-  Database,
-  Server,
-  Shield,
-  Code,
-  BarChart,
-  Brain,
-  ChevronRight,
-  ArrowDown,
-} from "lucide-react"
+import { Github, Linkedin, Mail, Phone, MapPin, Cloud, Database, Server, Shield, Code, BarChart, Brain, ChevronRight, ArrowDown } from 'lucide-react'
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { AnimatedText } from "@/components/ui/animated-text"
@@ -179,7 +164,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className="className=\"flex flex-wrap gap-3\""
+              className="flex flex-wrap gap-3"
             >
               <Button asChild className="bg-blue-600 hover:bg-blue-700 group relative overflow-hidden">
                 <a href="#contact">
